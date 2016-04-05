@@ -1,9 +1,5 @@
 *** EVALUATION ***
-<<<<<<< HEAD
 PROGRAM "E:\freescale\Git\freescale\bin\Project.abs"
-=======
-PROGRAM "G:\smartcar\freescale\bin\Project.abs"
->>>>>>> f6bf0e5af80e513c841a6365309efbe6359d7561
 
 *********************************************************************************************
 TARGET SECTION
@@ -2026,24 +2022,10 @@ Filling bytes inserted
  0000
 ------- ROM-ADDRESS: 0xC636 ---- RAM-ADDRESS: 0x2104 ---- SIZE       4 ---
 Name of initialized Object : DirectionKp
-<<<<<<< HEAD
  3ADED289
 ------- ROM-ADDRESS: 0xC63A ---- RAM-ADDRESS: 0x2108 ---- SIZE       4 ---
 Name of initialized Object : DirectionKd
  3749539C
-=======
-<<<<<<< HEAD
- 3AF9096C
-------- ROM-ADDRESS: 0xC63A ---- RAM-ADDRESS: 0x2108 ---- SIZE       4 ---
-Name of initialized Object : DirectionKd
- 38FBA882
-=======
- 3AC49BA6
-------- ROM-ADDRESS: 0xC63A ---- RAM-ADDRESS: 0x2108 ---- SIZE       4 ---
-Name of initialized Object : DirectionKd
- 38D1B717
->>>>>>> 02ff9b63e5a074328316ca4d978c8ad35eb4ecd6
->>>>>>> f6bf0e5af80e513c841a6365309efbe6359d7561
 ------- ROM-ADDRESS: 0xC63E ---- RAM-ADDRESS: 0x210C ---- SIZE       2 ---
 Name of initialized Object : MOTOR_OUT_MAX
  4140
