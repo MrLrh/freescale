@@ -35,9 +35,15 @@ float g_fDirectionError;
 float g_fDirectionErrorOld;
 float Delta_DirectionError;
 float DirectionAngleSpeedK;
+<<<<<<< HEAD
 float DirectionKp=0.0019;//0.0045;//0.0057;//=9;
 float DirectionKi=0;
 float DirectionKd=0.00012;//0.0006;//0.0003;//0.00027;
+=======
+float DirectionKp=0.0015;//=9;
+float DirectionKi=0;
+float DirectionKd=0.0001;
+>>>>>>> 02ff9b63e5a074328316ca4d978c8ad35eb4ecd6
 float I_DirectionError;
 extern uchar_8 g_nDirectionControlPeriod;
 /*************直立控制输出函数*****************/
