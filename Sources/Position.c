@@ -180,14 +180,15 @@ void Delt_Distance()
         temp3=(float)(58-distance_abs[1]) / 20;
         temp4=1-temp3;
     }
-    else if(distance_abs[1]<110)
+    else if(distance_abs[1]<92)
     {
         temp1=distance_abs[1];
         temp2=100+distance_abs[2];
         temp3=1;
         temp4=1-temp3;
+        
     }
-    else if(distance_abs[1]<130)
+    else if(distance_abs[1]<108)
     {
         temp1=distance_abs[1];
         if(sign==-1)
@@ -210,7 +211,7 @@ void Delt_Distance()
     
     if(distance<83&&distance>-83)       
     {
-        temp=((float)(Adcalcalation[right_sensor2]-Adcalcalation[left_sensor2])*120)/(Adcalcalation[right_sensor2]+Adcalcalation[left_sensor2]);
+        temp=((float)(Adcalcalation[right_sensor2]-Adcalcalation[left_sensor2])*100)/(Adcalcalation[right_sensor2]+Adcalcalation[left_sensor2]);
         if(temp<50&&temp>-50)
             distance=temp;
         else if(temp<75&&temp>-75)
