@@ -70,10 +70,10 @@ void main(void)
         Senddata[0]=AngleResult[0];
         Senddata[1]=AngleResult[1];
         Senddata[2]=Rightspeed;//ÓÒÂÖ
-        Senddata[3]=Leftspeed;//×óÂÖ 
-        Senddata[4]=AngleResult[3];//Turnstand[0];
-        Senddata[5]=AD_Max[1][1];//Turnstand[1];
-        Senddata[6]=AD_Max[2][2];
+        Senddata[3]=Adcalcalation[0];//×óÂÖ 
+        Senddata[4]=Adcalcalation[1];//AngleResult[3];//Turnstand[0];
+        Senddata[5]=Adcalcalation[2];//Turnstand[1];
+        Senddata[6]=AngleResult[3];
       } 
       else if(PORTB_PB4==0) 
       {
