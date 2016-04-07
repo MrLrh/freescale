@@ -15,6 +15,8 @@ float LastAnglespeed=0;
 /*************速度控制参数*****************/
 extern int Leftspeed,Rightspeed;
 extern uchar_8 g_nSpeedControlPeriod;
+extern uint_16 stop_flag;
+extern uint_16 start_flag;
 float Speedset=150;
 float SpeedKp=0;//.094;//0.032;
 float SpeedKd=0;
@@ -95,6 +97,10 @@ void SpeedSet()
      SpeedKp=0.0165;
      SpeedKd=0;
      SpeedKi=0.00003;   
+   }
+   if(stop_flag==1)
+   {
+      Speedset=0;
    }
 }
 void SpeedControl(void)

@@ -4,5 +4,6 @@
 extern void AD_biaoding();
 extern void Delt_Distance();
 extern void Position();
+extern void Setparamater(); 
 
 #endif

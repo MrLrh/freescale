@@ -10,9 +10,16 @@ float AD_Max[3][3];//标定值
 float AD_Cal[3][2];//位移计算
 float distance;//位移值
 float distance_nofilter;//没滤波的位移值
-float AD_Min;//最小电感值，小于这个值说明电感不可靠
+float AD_Min=10;//最小电感值，小于这个值说明电感不可靠
 float distance_abs[3];//到导线距离的绝对值
 float distance_max=500;
+uint_16 zhidao_flag; //直道元素标记
+uint_16 Swan_flag;//S弯标记
+uint_16 shizi_flag;//十字
+uint_16 left_flag;//左拐
+uint_16 right_flag;//右拐
+uint_16 stop_flag;//停车标志
+uint_16 start_flag;//出发标志
 
 
 /*
@@ -237,9 +244,59 @@ void Delt_Distance()
     g_fDirectionError=distance;
 
 }
-
+void Setparamater() 
+{
+   /*if(distance>-10&&distance<10) 
+   {
+       DirectionKp=0.007;//=9
+       DirectionKd=0.0004;
+   } 
+   else if(distance>-20&&distance<20) 
+   {
+       DirectionKp=0.010;//=9
+       DirectionKd=0.0005;
+   } 
+   else 
+   {
+       DirectionKp=0.016;//=9
+       DirectionKd=0.0006;
+   }      */
+        
+}
+        
 void Position() 
 {
+   uint_16 stop_time;
+   uint_16 turnleft_time;
+   uint_16 turnright_time;
+   uint_16 swan_time;
+   if(Adcalcalation[right_sensor2]<20&&Adcalcalation[left_sensor2]<20&&Adcalcalation[middle_sensor2]<20) 
+   {
+      stop_time++;
+      if(stop_time>10) 
+      {
+          stop_flag=1;
+          stop_time=0;
+      }
+   } 
+   else if(Adcalcalation[right_sensor2]>100&&Adcalcalation[middle_sensor2]>100&&Adcalcalation[left_sensor2]<70) 
+   {
+      turnright_time++;
+      if(turnright_time>10) 
+      {
+          right_flag=1;
+          turnright_time=0;
+      }
+   }
+   else if(Adcalcalation[left_sensor2]>100&&Adcalcalation[middle_sensor2]>100&&Adcalcalation[right_sensor2]<70)
+   {
+      turnleft_time++;
+      if(turnleft_time>10) 
+      {
+          left_flag=1;
+          turnleft_time=0;
+      }
+   }
    Delt_Distance();
    /*if(distance>-10&&distance<10) 
    {
