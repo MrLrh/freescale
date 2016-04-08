@@ -136,7 +136,7 @@ void IO_INIT(void)
   PORTE_PE2=0;
   
   DDRB|=0x00;//拨码开关
-  PUCR_PUPBE=1;//采用内部上拉
+  //PUCR_PUPBE=1;//采用内部上拉
 }
 /*************SCI初始化*****************/
 void SCI_INIT(void)

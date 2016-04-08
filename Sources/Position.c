@@ -298,20 +298,5 @@ void Position()
       }
    }
    Delt_Distance();
-   /*if(distance>-10&&distance<10) 
-   {
-       DirectionKp=0.007;//=9
-       DirectionKd=0.0004;
-   } 
-   else if(distance>-20&&distance<20) 
-   {
-       DirectionKp=0.010;//=9
-       DirectionKd=0.0005;
-   } 
-   else 
-   {
-       DirectionKp=0.016;//=9
-       DirectionKd=0.0006;
-   }      */
-    
+   Setparamater();
 } 
