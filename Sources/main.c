@@ -25,10 +25,13 @@ extern char Turnstand[2];
 extern int Leftspeed;
 extern int Rightspeed;
 extern float AD_Cal[3][3]; 
-//extern uint_16 Gravity_Offset;
-//extern uint_16 Gyrscope_Offset;
-//extern uint_16 Turn_Gravity_Offset;
-//extern uint_16 Turn_Angle_Offset;
+extern uint_16 zhidao_flag; //直道元素标记
+extern uint_16 Swan_flag;//S弯标记
+extern uint_16 shizi_flag;//十字
+extern uint_16 left_flag;//左拐
+extern uint_16 right_flag;//右拐
+extern uint_16 stop_flag;//停车标志
+extern uint_16 start_flag;//出发标志
 
 void main(void) 
 {
@@ -62,7 +65,7 @@ void main(void)
         LCD_P6x8Str(0,3,"Kp:");
         LCD_P6x8Str(18,3,"123");
         LCD_P6x8Str(0,4,"Kd:");
-        LCD_P6x8Str(18,4,"123");    
+        LCD_P6x8Str(18,4,"123");        
      }
      else if(PORTB_PB3==0)
      {
