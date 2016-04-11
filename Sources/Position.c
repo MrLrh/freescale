@@ -235,7 +235,7 @@ void Delt_Distance()
     }/**/
 
 
-    distance+=2;    //零位修正，由支架安装误差引起
+    //distance+=5;    //零位修正，由支架安装误差引起
     if(distance > distance_max) distance = distance_max;   //限定位移的极值
     else if(distance < -distance_max) distance = -distance_max;
     distance_nofilter = distance;    //观测未滤波的值，调试用
@@ -248,30 +248,30 @@ void Setparamater()
 {
    if(distance>-10&&distance<10) 
    {
-       DirectionKp=0.0014;
-       DirectionKd=0.000012;
+       DirectionKp=0.0018;
+       DirectionKd=0.000019;
    } 
    else if(distance>-40&&distance<40) 
    {
-       DirectionKp=0.0021;
-       DirectionKd=0.000016;
+       DirectionKp=0.0030;
+       DirectionKd=0.000028;
    } 
    else if(distance>-80&&distance<80)
    {
-       DirectionKp=0.0026;
-       DirectionKd=0.000017;
+       DirectionKp=0.00325;
+       DirectionKd=0.000035;
    } 
    else if(distance>-100&&distance<100)
    {
-       DirectionKp=0.0028;
-       DirectionKd=0.000023;
+       DirectionKp=0.0035;
+       DirectionKd=0.000045;
    } 
    else 
    {
-       DirectionKp=0.0030;
-       DirectionKd=0.000025;
-   }
-    /*  if(distance>-10&&distance<10) 
+       DirectionKp=0.0038;
+       DirectionKd=0.000050;
+   }     
+   /*if(distance>-10&&distance<10) 
    {
        DirectionKp=0.0012;
        DirectionKd=0.000011;
@@ -290,7 +290,7 @@ void Setparamater()
    {
        DirectionKp=0.0025;
        DirectionKd=0.000030;
-   }      speed=150 */
+   }     */ 
         
 }
         

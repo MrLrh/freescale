@@ -56,7 +56,7 @@ void main(void)
      } 
      else if(PORTB_PB2==0) 
      {
-        LCD_P6x8Str(0,0,"Angle:"); 
+        /*LCD_P6x8Str(0,0,"Angle:"); 
         LCD_P6x8Str(0,0,"Gravity_Offset");
         LCD_P6x8Str(0,1,"Anglespeed:");
         LCD_P6x8Str(67,1,"Gyrscope_Offset"); 
@@ -65,7 +65,8 @@ void main(void)
         LCD_P6x8Str(0,3,"Kp:");
         LCD_P6x8Str(18,3,"123");
         LCD_P6x8Str(0,4,"Kd:");
-        LCD_P6x8Str(18,4,"123");        
+        LCD_P6x8Str(18,4,"123");  */
+        stop_flag=0;      
      }
      else if(PORTB_PB3==0)
      {
