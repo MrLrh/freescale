@@ -25,6 +25,7 @@ extern char Turnstand[2];
 extern int Leftspeed;
 extern int Rightspeed;
 extern float AD_Cal[3][3]; 
+<<<<<<< HEAD
 extern uint_16 stop_flag;
 extern uint_16 dis;
 extern float Speedset;  
@@ -32,6 +33,17 @@ extern float Speedset;
 //extern uint_16 Gyrscope_Offset;
 //extern uint_16 Turn_Gravity_Offset;
 //extern uint_16 Turn_Angle_Offset;
+=======
+extern uint_16 zhidao_flag; //直道元素标记
+extern uint_16 Swan_flag;//S弯标记
+extern uint_16 shizi_flag;//十字
+extern uint_16 left_flag;//左拐
+extern uint_16 right_flag;//右拐
+extern uint_16 stop_flag;//停车标志
+extern uint_16 start_flag;//出发标志
+extern float distance;
+extern float distance_nofilter;
+>>>>>>> 60d881f1213707a13672e023a0d870fa7f13b89f
 
 void main(void) 
 {
@@ -56,9 +68,13 @@ void main(void)
      } 
      else if(PORTB_PB2==0) 
      {
+<<<<<<< HEAD
         stop_flag=0;
         Speedset=360;
        /* LCD_P6x8Str(0,0,"Angle:"); 
+=======
+        /*LCD_P6x8Str(0,0,"Angle:"); 
+>>>>>>> 60d881f1213707a13672e023a0d870fa7f13b89f
         LCD_P6x8Str(0,0,"Gravity_Offset");
         LCD_P6x8Str(0,1,"Anglespeed:");
         LCD_P6x8Str(67,1,"Gyrscope_Offset"); 
@@ -67,18 +83,31 @@ void main(void)
         LCD_P6x8Str(0,3,"Kp:");
         LCD_P6x8Str(18,3,"123");
         LCD_P6x8Str(0,4,"Kd:");
+<<<<<<< HEAD
         LCD_P6x8Str(18,4,"123");*/    
+=======
+        LCD_P6x8Str(18,4,"123");  */
+        stop_flag=0;      
+>>>>>>> 60d881f1213707a13672e023a0d870fa7f13b89f
      }
      else if(PORTB_PB3==0)
      {
         SCI_senddata();
         Senddata[0]=AngleResult[0];
         Senddata[1]=AngleResult[1];
+<<<<<<< HEAD
         Senddata[2]=dis;//右轮
         Senddata[3]=Adcalcalation[0];//左轮 
         Senddata[4]=Adcalcalation[1];//AngleResult[3];//Turnstand[0];
         Senddata[5]=Adcalcalation[2];//Turnstand[1];
         Senddata[6]=AngleResult[3];
+=======
+        Senddata[2]=distance_nofilter;//右轮
+        Senddata[3]=distance;//左轮 
+        Senddata[4]=Adcalcalation[0];//AngleResult[3];//Turnstand[0];
+        Senddata[5]=Adcalcalation[1];//Turnstand[1];
+        Senddata[6]=Adcalcalation[2];
+>>>>>>> 60d881f1213707a13672e023a0d870fa7f13b89f
       } 
       else if(PORTB_PB4==0) 
       {

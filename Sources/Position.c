@@ -236,7 +236,7 @@ void Delt_Distance()
     }/**/
 
 
-    //distance-=20;    //零位修正，由支架安装误差引起
+    //distance+=5;    //零位修正，由支架安装误差引起
     if(distance > distance_max) distance = distance_max;   //限定位移的极值
     else if(distance < -distance_max) distance = -distance_max;
     distance_nofilter = distance;    //观测未滤波的值，调试用
@@ -253,6 +253,7 @@ void Delt_Distance()
 }
 void Setparamater() 
 {
+<<<<<<< HEAD
   if(distance>-120&&distance<120)
   { 
        DirectionKp=0.0022;
@@ -274,6 +275,64 @@ void Setparamater()
        DirectionKd=0.00050;
    }
    
+=======
+   if(distance>-10&&distance<10) 
+   {
+       DirectionKp=0.0012;
+       DirectionKd=0.000015;
+   } 
+   else if(distance>-40&&distance<40) 
+   {
+       DirectionKp=0.0018;
+       DirectionKd=0.000016;
+   } 
+   else if(distance>-100&&distance<100)
+   {
+       DirectionKp=0.0024;
+       DirectionKd=0.000027;
+   } 
+   else if(distance>-140&&distance<140)
+   {
+       DirectionKp=0.0029;
+       DirectionKd=0.000030;
+   } 
+   else if(distance>-160&&distance<160)
+   {
+       DirectionKp=0.0030;
+       DirectionKd=0.000035;
+   } 
+   else if(distance>-180&&distance<180)
+   {
+       DirectionKp=0.0040;
+       DirectionKd=0.000045;
+   } 
+   else 
+   {
+       DirectionKp=0.0049;
+       DirectionKd=0.000060;
+   }
+   /*if(distance>-10&&distance<10) 
+   {
+       DirectionKp=0.0012;
+       DirectionKd=0.000011;
+   } 
+   else if(distance>-40&&distance<40) 
+   {
+       DirectionKp=0.0015;
+       DirectionKd=0.000014;
+   } 
+   else if(distance>-100&&distance<100)
+   {
+       DirectionKp=0.0020;
+       DirectionKd=0.000025;
+   } 
+   else 
+   {
+       DirectionKp=0.0025;
+       DirectionKd=0.000030;
+   }     */
+        
+>>>>>>> 60d881f1213707a13672e023a0d870fa7f13b89f
 }
         
 void Position() 

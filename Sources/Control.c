@@ -17,7 +17,11 @@ extern int Leftspeed,Rightspeed;
 extern uchar_8 g_nSpeedControlPeriod;
 extern uint_16 stop_flag;
 extern uint_16 start_flag;
+<<<<<<< HEAD
 float Speedset=360;
+=======
+float Speedset=560;
+>>>>>>> 60d881f1213707a13672e023a0d870fa7f13b89f
 float SpeedKp=0;//.094;//0.032;
 float SpeedKd=0;
 float SpeedKi=0;//0.000005;
@@ -101,6 +105,10 @@ void SpeedSet()
    if(stop_flag==1)
    {
       Speedset=0;
+   } 
+   else if(stop_flag==0)
+   {
+       Speedset=400;
    }
 }
 void SpeedControl(void)
