@@ -25,6 +25,9 @@ extern char Turnstand[2];
 extern int Leftspeed;
 extern int Rightspeed;
 extern float AD_Cal[3][3]; 
+extern uint_16 stop_flag;
+extern uint_16 dis;
+extern float Speedset;  
 //extern uint_16 Gravity_Offset;
 //extern uint_16 Gyrscope_Offset;
 //extern uint_16 Turn_Gravity_Offset;
@@ -53,7 +56,9 @@ void main(void)
      } 
      else if(PORTB_PB2==0) 
      {
-        LCD_P6x8Str(0,0,"Angle:"); 
+        stop_flag=0;
+        Speedset=360;
+       /* LCD_P6x8Str(0,0,"Angle:"); 
         LCD_P6x8Str(0,0,"Gravity_Offset");
         LCD_P6x8Str(0,1,"Anglespeed:");
         LCD_P6x8Str(67,1,"Gyrscope_Offset"); 
@@ -62,14 +67,14 @@ void main(void)
         LCD_P6x8Str(0,3,"Kp:");
         LCD_P6x8Str(18,3,"123");
         LCD_P6x8Str(0,4,"Kd:");
-        LCD_P6x8Str(18,4,"123");    
+        LCD_P6x8Str(18,4,"123");*/    
      }
      else if(PORTB_PB3==0)
      {
         SCI_senddata();
         Senddata[0]=AngleResult[0];
         Senddata[1]=AngleResult[1];
-        Senddata[2]=Rightspeed;//ÓÒÂÖ
+        Senddata[2]=dis;//ÓÒÂÖ
         Senddata[3]=Adcalcalation[0];//×óÂÖ 
         Senddata[4]=Adcalcalation[1];//AngleResult[3];//Turnstand[0];
         Senddata[5]=Adcalcalation[2];//Turnstand[1];
