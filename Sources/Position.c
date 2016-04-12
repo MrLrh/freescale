@@ -248,29 +248,39 @@ void Setparamater()
 {
    if(distance>-10&&distance<10) 
    {
-       DirectionKp=0.0018;
-       DirectionKd=0.000019;
+       DirectionKp=0.0012;
+       DirectionKd=0.000015;
    } 
    else if(distance>-40&&distance<40) 
    {
-       DirectionKp=0.0030;
-       DirectionKd=0.000028;
-   } 
-   else if(distance>-80&&distance<80)
-   {
-       DirectionKp=0.00325;
-       DirectionKd=0.000035;
+       DirectionKp=0.0018;
+       DirectionKd=0.000016;
    } 
    else if(distance>-100&&distance<100)
    {
-       DirectionKp=0.0035;
+       DirectionKp=0.0024;
+       DirectionKd=0.000027;
+   } 
+   else if(distance>-140&&distance<140)
+   {
+       DirectionKp=0.0029;
+       DirectionKd=0.000030;
+   } 
+   else if(distance>-160&&distance<160)
+   {
+       DirectionKp=0.0030;
+       DirectionKd=0.000035;
+   } 
+   else if(distance>-180&&distance<180)
+   {
+       DirectionKp=0.0040;
        DirectionKd=0.000045;
    } 
    else 
    {
-       DirectionKp=0.0038;
-       DirectionKd=0.000050;
-   }     
+       DirectionKp=0.0049;
+       DirectionKd=0.000060;
+   }
    /*if(distance>-10&&distance<10) 
    {
        DirectionKp=0.0012;
@@ -290,7 +300,7 @@ void Setparamater()
    {
        DirectionKp=0.0025;
        DirectionKd=0.000030;
-   }     */ 
+   }     */
         
 }
         

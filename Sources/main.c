@@ -32,6 +32,8 @@ extern uint_16 left_flag;//左拐
 extern uint_16 right_flag;//右拐
 extern uint_16 stop_flag;//停车标志
 extern uint_16 start_flag;//出发标志
+extern float distance;
+extern float distance_nofilter;
 
 void main(void) 
 {
@@ -73,11 +75,11 @@ void main(void)
         SCI_senddata();
         Senddata[0]=AngleResult[0];
         Senddata[1]=AngleResult[1];
-        Senddata[2]=Rightspeed;//右轮
-        Senddata[3]=Adcalcalation[0];//左轮 
-        Senddata[4]=Adcalcalation[1];//AngleResult[3];//Turnstand[0];
-        Senddata[5]=Adcalcalation[2];//Turnstand[1];
-        Senddata[6]=AngleResult[3];
+        Senddata[2]=distance_nofilter;//右轮
+        Senddata[3]=distance;//左轮 
+        Senddata[4]=Adcalcalation[0];//AngleResult[3];//Turnstand[0];
+        Senddata[5]=Adcalcalation[1];//Turnstand[1];
+        Senddata[6]=Adcalcalation[2];
       } 
       else if(PORTB_PB4==0) 
       {
