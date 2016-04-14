@@ -6,7 +6,7 @@ extern float g_fDirectionError;
 extern float DirectionKp;//0.007;//=9;
 extern float DirectionKi;
 extern float DirectionKd;//0.0004;
-float AD_Max[3][3];//标定值
+float AD_Max[3][3]={{562,262,55},{269,617,297},{62,318,639}};//标定值
 float AD_Cal[3][2];//位移计算
 float distance;//位移值
 float distance_nofilter;//没滤波的位移值
@@ -20,6 +20,7 @@ uint_16 left_flag;//左拐
 uint_16 right_flag;//右拐
 uint_16 stop_flag;//停车标志
 uint_16 start_flag;//出发标志
+uint_16 dis;
 
 
 /*
@@ -240,6 +241,12 @@ void Delt_Distance()
     else if(distance < -distance_max) distance = -distance_max;
     distance_nofilter = distance;    //观测未滤波的值，调试用
     distance = 0.1 * distance + 0.9 * distance_pre; //对计算结果低通滤波以使其更平滑
+    
+    if(distance<0)
+        dis=(uint_16)(-distance);
+    else
+        dis=(uint_16)distance;
+    
     distance_pre = distance;  
     g_fDirectionError=distance;
 
@@ -247,7 +254,30 @@ void Delt_Distance()
 void Setparamater() 
 {
    /*if(distance>-10&&distance<10) 
+  if(distance>-120&&distance<120)
+  { 
+       DirectionKp=0.0022;
+       DirectionKd=0.00035;
+  }
+  else if(distance>-200&&distance<200)
+  { 
+       DirectionKp=0.0022;
+       DirectionKd=0.00035;
+  } 
+  else if(distance>-280&&distance<280)
+  { 
+       DirectionKp=0.0025;
+       DirectionKd=0.00045;
+   } 
+   else
    {
+       DirectionKp=0.0030;
+       DirectionKd=0.00050;
+   }
+   
+
+   if(distance>-10&&distance<10) 
+      {
        DirectionKp=0.0012;
        DirectionKd=0.000011;
    } 
@@ -294,7 +324,7 @@ void Position()
    uint_16 turnleft_time;
    uint_16 turnright_time;
    uint_16 swan_time;
-   if(Adcalcalation[right_sensor2]<20&&Adcalcalation[left_sensor2]<20&&Adcalcalation[middle_sensor2]<20) 
+   if(Adcalcalation[right_sensor2]<10&&Adcalcalation[left_sensor2]<10&&Adcalcalation[middle_sensor2]<10) 
    {
       stop_time++;
       if(stop_time>10) 
