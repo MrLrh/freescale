@@ -17,7 +17,7 @@ extern int Leftspeed,Rightspeed;
 extern uchar_8 g_nSpeedControlPeriod;
 extern uint_16 stop_flag;
 extern uint_16 start_flag;
-float Speedset=560;
+float Speedset=400;
 float SpeedKp=0;//.094;//0.032;
 float SpeedKd=0;
 float SpeedKi=0;//0.000005;
