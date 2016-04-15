@@ -254,68 +254,45 @@ void Delt_Distance()
 void Setparamater() 
 {
    /*if(distance>-10&&distance<10) 
-  if(distance>-120&&distance<120)
-  { 
-       DirectionKp=0.0022;
-       DirectionKd=0.00035;
-  }
-  else if(distance>-200&&distance<200)
-  { 
-       DirectionKp=0.0022;
-       DirectionKd=0.00035;
-  } 
-  else if(distance>-280&&distance<280)
-  { 
-       DirectionKp=0.0025;
-       DirectionKd=0.00045;
-   } 
-   else
-   {
-       DirectionKp=0.0030;
-       DirectionKd=0.00050;
-   }
-   
-
-   if(distance>-10&&distance<10) 
       {
        DirectionKp=0.0012;
-       DirectionKd=0.000011;
+       DirectionKd=0.000015;
    } 
    else if(distance>-40&&distance<40) 
    {
-       DirectionKp=0.0015;
-       DirectionKd=0.000014;
+       DirectionKp=0.0020;
+       DirectionKd=0.000021;
    } 
    else if(distance>-100&&distance<100)
    {
-       DirectionKp=0.0020;
-       DirectionKd=0.000025;
+       DirectionKp=0.0028;
+       DirectionKd=0.000033;
    } 
    else 
    {
-       DirectionKp=0.0025;
-       DirectionKd=0.000030;
-   }     300 */
+       DirectionKp=0.0035;
+       DirectionKd=0.000040;
+   }     */
    if(distance>-40&&distance<40) 
    {
-       DirectionKp=0.0015;
-       DirectionKd=0.000014;
+       DirectionKp=0.0017;
+       DirectionKd=0.000021;
    } 
    else if(distance>-180&&distance<180)
    {
        DirectionKp=0.0025;
-       DirectionKd=0.000031;
+       DirectionKd=0.000030;
    } 
    else if(distance>-300&&distance<300)
    {
-       DirectionKp=0.0041;
-       DirectionKd=0.000051;
+       DirectionKp=0.0032;
+       DirectionKd=0.000031;
    } 
    else 
    {
-       DirectionKp=0.0044;
-       DirectionKd=0.000070;
-   }      
+       DirectionKp=0.0039;
+       DirectionKd=0.000041;
+   }        
 }
         
 void Position() 

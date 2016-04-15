@@ -51,7 +51,7 @@ Section Name                    Size  Type     From       To       Segment
 .startData                        10     R     0xC00F     0xC018   ROM_C000
 NON_BANKED                       923     R     0xC019     0xC3B3   ROM_C000
 .copy                             72     R     0xC3B4     0xC3FB   ROM_C000
-.text                           5664     R   0xFE8000   0xFE961F   PAGE_FE
+.text                           5642     R   0xFE8000   0xFE9609   PAGE_FE
 .stack                           256   R/W     0x2000     0x20FF   RAM
 .data                             66   R/W     0x2100     0x2141   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
@@ -351,7 +351,7 @@ NON_BANKED                       923     R     0xC019     0xC3B3   ROM_C000
 .vectSeg292_vect                   2     R     0xFFFE     0xFFFF   .vectSeg292
 
 Summary of section sizes per section type:
-READ_ONLY (R):        1A20 (dec:     6688)
+READ_ONLY (R):        1A0A (dec:     6666)
 READ_WRITE (R/W):      269 (dec:      617)
 NO_INIT (N/I):         168 (dec:      360)
 
@@ -661,7 +661,7 @@ MODULE:                 -- MC9S12XS128.c.o --
      _PITCNT3                                   356       2       2       0   .abs_section_356
 MODULE:                 -- main.c.o --
 - PROCEDURES:
-     main                                    FE8000     11F     287       6   .text       
+     main                                    FE8000     10A     266       6   .text       
      pit0                                      C019      73     115       1   NON_BANKED  
 - VARIABLES:
      g_n1MsEventCount                          2142       1       1       3   .bss        
@@ -673,7 +673,7 @@ MODULE:                 -- main.c.o --
      _Vector_66                                FF7A       2       2       0   .abs_section_ff7a
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
-     Init                                    FE811F      29      41       2   .text       
+     Init                                    FE810A      29      41       2   .text       
      _Startup                                  C000       F      15       0   .init       
 - VARIABLES:
      _startupData                              C00F       6       6       3   .startData  
@@ -682,8 +682,8 @@ MODULE:                 -- Start12.c.o --
 MODULE:                 -- FADD.C.o (ansixb.lib) --
 - PROCEDURES:
      F_ADDKL                                   C08C      5E      94       1   NON_BANKED  
-     _FADD                                     C0EA      15      21      30   NON_BANKED  
-     _FSUB                                     C0FF      13      19      28   NON_BANKED  
+     _FADD                                     C0EA      15      21      31   NON_BANKED  
+     _FSUB                                     C0FF      13      19      27   NON_BANKED  
      _FNEG                                     C112       B      11       2   NON_BANKED  
 - VARIABLES:
 MODULE:                 -- FCMP.C.o (ansixb.lib) --
@@ -697,14 +697,14 @@ MODULE:                 -- FCONV.C.o (ansixb.lib) --
      _FSFLOAT                                  C193      12      18       3   NON_BANKED  
      _FUFLOAT                                  C1A5      12      18      11   NON_BANKED  
      _FSTRUNC                                  C1B7      11      17       3   NON_BANKED  
-     _FUTRUNC                                  C1C8       3       3       5   NON_BANKED  
+     _FUTRUNC                                  C1C8       3       3       4   NON_BANKED  
 - VARIABLES:
 MODULE:                 -- FMUL.C.o (ansixb.lib) --
 - PROCEDURES:
      F_DIVKL                                   C1CB      84     132       1   NON_BANKED  
      F_MULKL                                   C24F      57      87       1   NON_BANKED  
      _FMUL                                     C2A6      14      20      30   NON_BANKED  
-     _FDIV                                     C2BA      1E      30      13   NON_BANKED  
+     _FDIV                                     C2BA      1E      30      12   NON_BANKED  
 - VARIABLES:
 MODULE:                 -- FREGS.C.o (ansixb.lib) --
 - PROCEDURES:
@@ -734,22 +734,22 @@ MODULE:                 -- AD.c.o --
      Adcalcalation                             219B       A      10      32   .common     
 MODULE:                 -- Angle.c.o --
 - PROCEDURES:
-     GetAngle                                FE8148      D0     208       2   .text       
-     AngleCalculate                          FE8218      A8     168       2   .text       
+     GetAngle                                FE8133      D0     208       2   .text       
+     AngleCalculate                          FE8203      A7     167       2   .text       
 - VARIABLES:
      AngleResult                               21A5       8       8       8   .common     
      ADResult                                  21AD       8       8       5   .common     
      AngleCalculateResult                      21B5      10      16      14   .common     
 MODULE:                 -- Control.c.o --
 - PROCEDURES:
-     AngleControl                            FE82C0      FE     254       2   .text       
-     SpeedSet                                FE83BE      6A     106       2   .text       
-     SpeedControl                            FE8428     111     273       2   .text       
-     SpeedControlOutput                      FE8539      4E      78       2   .text       
-     DirectionControl                        FE8587     107     263       4   .text       
-     DirectionControlOutput                  FE868E      45      69       2   .text       
+     AngleControl                            FE82AA      FE     254       2   .text       
+     SpeedSet                                FE83A8      6A     106       2   .text       
+     SpeedControl                            FE8412     111     273       2   .text       
+     SpeedControlOutput                      FE8523      4E      78       2   .text       
+     DirectionControl                        FE8571     107     263       4   .text       
+     DirectionControlOutput                  FE8678      45      69       2   .text       
 - VARIABLES:
-     Speedset                                  2100       4       4       9   .data       
+     Speedset                                  2100       4       4       7   .data       
      DirectionKp                               2104       4       4      10   .data       
      DirectionKd                               2108       4       4       7   .data       
      AngleKp                                   2155       4       4       6   .bss        
@@ -781,9 +781,9 @@ MODULE:                 -- Control.c.o --
      I_DirectionError                          2201       4       4      10   .common     
 MODULE:                 -- Counter.c.o --
 - PROCEDURES:
-     GetMotorSpeed                           FE86D3      3D      61       2   .text       
-     GetSpeedVeer                            FE8710      20      32       2   .text       
-     SpeedCalculate                          FE8730      70     112       2   .text       
+     GetMotorSpeed                           FE86BD      3D      61       2   .text       
+     GetSpeedVeer                            FE86FA      20      32       2   .text       
+     SpeedCalculate                          FE871A      70     112       2   .text       
 - VARIABLES:
      Speed                                     2205       2       2       3   .common     
      Turnstand                                 2207       2       2       3   .common     
@@ -795,19 +795,19 @@ MODULE:                 -- Counter.c.o --
      Rightspeed                                2213       2       2       5   .common     
 MODULE:                 -- Init.c.o --
 - PROCEDURES:
-     PLL_INIT                                FE87A0      1D      29       2   .text       
-     PIT_INIT                                FE87BD      1C      28       2   .text       
-     PWM_INIT                                FE87D9      7E     126       2   .text       
-     AD_INIT                                 FE8857      13      19       2   .text       
-     IO_INIT                                 FE886A      43      67       2   .text       
-     SCI_INIT                                FE88AD       D      13       2   .text       
-     DFLASH_INIT                             FE88BA      17      23       2   .text       
+     PLL_INIT                                FE878A      1D      29       2   .text       
+     PIT_INIT                                FE87A7      1C      28       2   .text       
+     PWM_INIT                                FE87C3      7E     126       2   .text       
+     AD_INIT                                 FE8841      13      19       2   .text       
+     IO_INIT                                 FE8854      43      67       2   .text       
+     SCI_INIT                                FE8897       D      13       2   .text       
+     DFLASH_INIT                             FE88A4      17      23       2   .text       
 - VARIABLES:
 MODULE:                 -- Motorout.c.o --
 - PROCEDURES:
-     MotorOutput                             FE88D1      66     102       2   .text       
-     MotorSpeedControl                       FE8937      BA     186       2   .text       
-     SetMotorPWM                             FE89F1      49      73       2   .text       
+     MotorOutput                             FE88BB      66     102       2   .text       
+     MotorSpeedControl                       FE8921      BA     186       2   .text       
+     SetMotorPWM                             FE89DB      49      73       2   .text       
 - VARIABLES:
      MOTOR_OUT_MAX                             210C       4       4       7   .data       
      MOTOR_OUT_MIN                             2110       4       4       8   .data       
@@ -821,18 +821,18 @@ MODULE:                 -- Motorout.c.o --
      nOutR                                     221F       2       2       3   .common     
 MODULE:                 -- Sci.c.o --
 - PROCEDURES:
-     SCI_send                                FE8A3A       9       9       8   .text       
-     Datatransition                          FE8A43      58      88       2   .text       
-     SendHex                                 FE8A9B      2A      42       2   .text       
-     SCI_senddata                            FE8AC5      23      35       2   .text       
+     SCI_send                                FE8A24       9       9       8   .text       
+     Datatransition                          FE8A2D      58      88       2   .text       
+     SendHex                                 FE8A85      2A      42       2   .text       
+     SCI_senddata                            FE8AAF      23      35       2   .text       
 - VARIABLES:
      Outdata                                   2221       E      14      16   .common     
 MODULE:                 -- Position.c.o --
 - PROCEDURES:
-     AD_biaoding                             FE8AE8     1D0     464      16   .text       
-     Delt_Distance                           FE8CB8     750    1872      68   .text       
-     Setparamater                            FE9408      CE     206       4   .text       
-     Position                                FE94D6      89     137       2   .text       
+     AD_biaoding                             FE8AD2     1D0     464      16   .text       
+     Delt_Distance                           FE8CA2     750    1872      68   .text       
+     Setparamater                            FE93F2      CE     206       4   .text       
+     Position                                FE94C0      89     137       2   .text       
 - VARIABLES:
      AD_Max                                    2114      24      36      82   .data       
      AD_Min                                    2138       4       4       7   .data       
@@ -843,18 +843,18 @@ MODULE:                 -- Position.c.o --
      distance_pre.2                            2195       4       4       4   .bss        
      sign_change.3                             2199       2       2       4   .bss        
      AD_Cal                                    222F      18      24      13   .common     
-     distance                                  2247       4       4      31   .common     
+     distance                                  2247       4       4      29   .common     
      distance_nofilter                         224B       4       4       2   .common     
      distance_abs                              224F       C      12      49   .common     
      left_flag                                 225B       2       2       1   .common     
      right_flag                                225D       2       2       1   .common     
-     stop_flag                                 225F       2       2       4   .common     
+     stop_flag                                 225F       2       2       3   .common     
      dis                                       2261       2       2       1   .common     
 MODULE:                 -- Flash.c.o --
 - PROCEDURES:
-     Dflash_Write                            FE955F      62      98       6   .text       
-     Dflash_Read                             FE95C1      23      35       2   .text       
-     Dflash_Erase                            FE95E4      3C      60       2   .text       
+     Dflash_Write                            FE9549      62      98       6   .text       
+     Dflash_Read                             FE95AB      23      35       2   .text       
+     Dflash_Erase                            FE95CE      3C      60       2   .text       
 - VARIABLES:
      Buffer                                    2263       6       6       6   .common     
 
@@ -863,7 +863,7 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   MC9S12XS128.c.o                            360      0      0
-  main.c.o                                    19    402      2
+  main.c.o                                    19    381      2
   Start12.c.o                                  0     56      0
   FADD.C.o (ansixb.lib)                        0    145      0
   FCMP.C.o (ansixb.lib)                        0     38      0
@@ -873,7 +873,7 @@ MODULE STATISTIC
   rtshc12.c.o (ansixb.lib)                     0     23      0
   VREGS.C.o (ansixb.lib)                       0     28      0
   AD.c.o                                      10      0      0
-  Angle.c.o                                   32    376      0
+  Angle.c.o                                   32    375      0
   Control.c.o                                124   1043      0
   Counter.c.o                                 16    205      0
   Init.c.o                                     0    305      0
@@ -1799,7 +1799,7 @@ OBJECT LIST SORTED BY ADDRESS
      _PITCNT2                                   352       2       2       0   .abs_section_352
      _PITLD3                                    354       2       2       0   .abs_section_354
      _PITCNT3                                   356       2       2       0   .abs_section_356
-     Speedset                                  2100       4       4       9   .data       
+     Speedset                                  2100       4       4       7   .data       
      DirectionKp                               2104       4       4      10   .data       
      DirectionKd                               2108       4       4       7   .data       
      MOTOR_OUT_MAX                             210C       4       4       7   .data       
@@ -1867,19 +1867,19 @@ OBJECT LIST SORTED BY ADDRESS
      nOutR                                     221F       2       2       3   .common     
      Outdata                                   2221       E      14      16   .common     
      AD_Cal                                    222F      18      24      13   .common     
-     distance                                  2247       4       4      31   .common     
+     distance                                  2247       4       4      29   .common     
      distance_nofilter                         224B       4       4       2   .common     
      distance_abs                              224F       C      12      49   .common     
      left_flag                                 225B       2       2       1   .common     
      right_flag                                225D       2       2       1   .common     
-     stop_flag                                 225F       2       2       4   .common     
+     stop_flag                                 225F       2       2       3   .common     
      dis                                       2261       2       2       1   .common     
      Buffer                                    2263       6       6       6   .common     
      _Startup                                  C000       F      15       0   .init       
      pit0                                      C019      73     115       1   NON_BANKED  
      F_ADDKL                                   C08C      5E      94       1   NON_BANKED  
-     _FADD                                     C0EA      15      21      30   NON_BANKED  
-     _FSUB                                     C0FF      13      19      28   NON_BANKED  
+     _FADD                                     C0EA      15      21      31   NON_BANKED  
+     _FSUB                                     C0FF      13      19      27   NON_BANKED  
      _FNEG                                     C112       B      11       2   NON_BANKED  
      _FCMP                                     C11D      26      38      42   NON_BANKED  
      F_TOLONGK                                 C143      32      50       1   NON_BANKED  
@@ -1887,11 +1887,11 @@ OBJECT LIST SORTED BY ADDRESS
      _FSFLOAT                                  C193      12      18       3   NON_BANKED  
      _FUFLOAT                                  C1A5      12      18      11   NON_BANKED  
      _FSTRUNC                                  C1B7      11      17       3   NON_BANKED  
-     _FUTRUNC                                  C1C8       3       3       5   NON_BANKED  
+     _FUTRUNC                                  C1C8       3       3       4   NON_BANKED  
      F_DIVKL                                   C1CB      84     132       1   NON_BANKED  
      F_MULKL                                   C24F      57      87       1   NON_BANKED  
      _FMUL                                     C2A6      14      20      30   NON_BANKED  
-     _FDIV                                     C2BA      1E      30      13   NON_BANKED  
+     _FDIV                                     C2BA      1E      30      12   NON_BANKED  
      F_PULK                                    C2D8      15      21       4   NON_BANKED  
      F_PULL                                    C2ED      15      21       3   NON_BANKED  
      F_PSHK                                    C302      13      19       5   NON_BANKED  
@@ -1906,40 +1906,40 @@ OBJECT LIST SORTED BY ADDRESS
      UL_PULK                                   C3A7       3       3       1   NON_BANKED  
      SL_PULK                                   C3AA       A      10       1   NON_BANKED  
      _Vector_66                                FF7A       2       2       0   .abs_section_ff7a
-     main                                    FE8000     11F     287       6   .text       
-     Init                                    FE811F      29      41       2   .text       
-     GetAngle                                FE8148      D0     208       2   .text       
-     AngleCalculate                          FE8218      A8     168       2   .text       
-     AngleControl                            FE82C0      FE     254       2   .text       
-     SpeedSet                                FE83BE      6A     106       2   .text       
-     SpeedControl                            FE8428     111     273       2   .text       
-     SpeedControlOutput                      FE8539      4E      78       2   .text       
-     DirectionControl                        FE8587     107     263       4   .text       
-     DirectionControlOutput                  FE868E      45      69       2   .text       
-     GetMotorSpeed                           FE86D3      3D      61       2   .text       
-     GetSpeedVeer                            FE8710      20      32       2   .text       
-     SpeedCalculate                          FE8730      70     112       2   .text       
-     PLL_INIT                                FE87A0      1D      29       2   .text       
-     PIT_INIT                                FE87BD      1C      28       2   .text       
-     PWM_INIT                                FE87D9      7E     126       2   .text       
-     AD_INIT                                 FE8857      13      19       2   .text       
-     IO_INIT                                 FE886A      43      67       2   .text       
-     SCI_INIT                                FE88AD       D      13       2   .text       
-     DFLASH_INIT                             FE88BA      17      23       2   .text       
-     MotorOutput                             FE88D1      66     102       2   .text       
-     MotorSpeedControl                       FE8937      BA     186       2   .text       
-     SetMotorPWM                             FE89F1      49      73       2   .text       
-     SCI_send                                FE8A3A       9       9       8   .text       
-     Datatransition                          FE8A43      58      88       2   .text       
-     SendHex                                 FE8A9B      2A      42       2   .text       
-     SCI_senddata                            FE8AC5      23      35       2   .text       
-     AD_biaoding                             FE8AE8     1D0     464      16   .text       
-     Delt_Distance                           FE8CB8     750    1872      68   .text       
-     Setparamater                            FE9408      CE     206       4   .text       
-     Position                                FE94D6      89     137       2   .text       
-     Dflash_Write                            FE955F      62      98       6   .text       
-     Dflash_Read                             FE95C1      23      35       2   .text       
-     Dflash_Erase                            FE95E4      3C      60       2   .text       
+     main                                    FE8000     10A     266       6   .text       
+     Init                                    FE810A      29      41       2   .text       
+     GetAngle                                FE8133      D0     208       2   .text       
+     AngleCalculate                          FE8203      A7     167       2   .text       
+     AngleControl                            FE82AA      FE     254       2   .text       
+     SpeedSet                                FE83A8      6A     106       2   .text       
+     SpeedControl                            FE8412     111     273       2   .text       
+     SpeedControlOutput                      FE8523      4E      78       2   .text       
+     DirectionControl                        FE8571     107     263       4   .text       
+     DirectionControlOutput                  FE8678      45      69       2   .text       
+     GetMotorSpeed                           FE86BD      3D      61       2   .text       
+     GetSpeedVeer                            FE86FA      20      32       2   .text       
+     SpeedCalculate                          FE871A      70     112       2   .text       
+     PLL_INIT                                FE878A      1D      29       2   .text       
+     PIT_INIT                                FE87A7      1C      28       2   .text       
+     PWM_INIT                                FE87C3      7E     126       2   .text       
+     AD_INIT                                 FE8841      13      19       2   .text       
+     IO_INIT                                 FE8854      43      67       2   .text       
+     SCI_INIT                                FE8897       D      13       2   .text       
+     DFLASH_INIT                             FE88A4      17      23       2   .text       
+     MotorOutput                             FE88BB      66     102       2   .text       
+     MotorSpeedControl                       FE8921      BA     186       2   .text       
+     SetMotorPWM                             FE89DB      49      73       2   .text       
+     SCI_send                                FE8A24       9       9       8   .text       
+     Datatransition                          FE8A2D      58      88       2   .text       
+     SendHex                                 FE8A85      2A      42       2   .text       
+     SCI_senddata                            FE8AAF      23      35       2   .text       
+     AD_biaoding                             FE8AD2     1D0     464      16   .text       
+     Delt_Distance                           FE8CA2     750    1872      68   .text       
+     Setparamater                            FE93F2      CE     206       4   .text       
+     Position                                FE94C0      89     137       2   .text       
+     Dflash_Write                            FE9549      62      98       6   .text       
+     Dflash_Read                             FE95AB      23      35       2   .text       
+     Dflash_Erase                            FE95CE      3C      60       2   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -1979,7 +1979,7 @@ Filling bytes inserted
  00422100
 ------- ROM-ADDRESS: 0xC3B8 ---- RAM-ADDRESS: 0x2100 ---- SIZE       2 ---
 Name of initialized Object : Speedset
- 43B4
+ 43C8
 ------- ROM-ADDRESS: 0xC3BA ---- SIZE       2 ---
 Filling bytes inserted
  0000
@@ -2056,9 +2056,8 @@ SL_PULK                   USES L_NEGK
 _Vector_66                USES pit0 
 main                      USES PLL_INIT PIT_INIT PWM_INIT AD_INIT IO_INIT 
                                 SCI_INIT DFLASH_INIT _PORTAB AD_biaoding stop_flag 
-                                Speedset SCI_senddata AngleResult Senddata distance 
-                                _FUTRUNC Adcalcalation main AD_Max AD_Cal _FADD _FDIV 
-                                Dflash_Read _FUFLOAT 
+                                SCI_senddata AngleResult Senddata Adcalcalation main AD_Max 
+                                AD_Cal _FADD _FDIV Dflash_Read _FUFLOAT 
 Init                      USES _startupData 
 GetAngle                  USES _ATD0STAT0 _ATD0DR8 _ATD0DR9 _ATD0DR6 _ATD0DR7 
                                 _ATD0DR0 _ATD0DR1 _ATD0DR2 ADResult Adcalcalation 
@@ -2234,8 +2233,6 @@ DEPENDENCY TREE
  |  |     | 
  |  |     +- SCI_send             (see above)
  |  |        
- |  +- _FUTRUNC             (see above)
- |  |  
  |  +- _FADD                (see above)
  |  |  
  |  +- _FDIV                (see above)
@@ -2389,5 +2386,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 7
-Total size of all blocks to be downloaded: 6688
+Total size of all blocks to be downloaded: 6666
 

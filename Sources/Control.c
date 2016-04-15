@@ -17,7 +17,7 @@ extern int Leftspeed,Rightspeed;
 extern uchar_8 g_nSpeedControlPeriod;
 extern uint_16 stop_flag;
 extern uint_16 start_flag;
-float Speedset=360;
+float Speedset=400;
 float SpeedKp=0;//.094;//0.032;
 float SpeedKd=0;
 float SpeedKi=0;//0.000005;
@@ -153,7 +153,7 @@ void DirectionControl(void)
     else if(I_DirectionError<=-0.01)
       I_DirectionError=-0.01;
     
-    g_fDirectionControlOutNew= g_fDirectionError*DirectionKp+(g_fDirectionError-g_fDirectionErrorOld)*DirectionKd+I_DirectionError-DirectionAngleSpeedK*DirectionValue/100;
+    g_fDirectionControlOutNew= g_fDirectionError*DirectionKp+(g_fDirectionError-g_fDirectionErrorOld)*DirectionKd+I_DirectionError+DirectionAngleSpeedK*DirectionValue/100;
 
 }
 void DirectionControlOutput(void) 

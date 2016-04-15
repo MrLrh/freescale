@@ -61,7 +61,6 @@ void main(void)
      else if(PORTB_PB2==0) 
      {
         stop_flag=0;
-        Speedset=360;
        /* LCD_P6x8Str(0,0,"Angle:"); 
 
         /*LCD_P6x8Str(0,0,"Angle:"); 
@@ -74,18 +73,17 @@ void main(void)
         LCD_P6x8Str(18,3,"123");
         LCD_P6x8Str(0,4,"Kd:");
         LCD_P6x8Str(18,4,"123");*/    
-        stop_flag=0;      
      }
      else if(PORTB_PB3==0)
      {
         SCI_senddata();
         Senddata[0]=AngleResult[0];
         Senddata[1]=AngleResult[1];
-        Senddata[2]=distance;//ÓÒÂÖ
+        Senddata[2]=AngleResult[3];//ÓÒÂÖ
         Senddata[3]=Adcalcalation[0];//×óÂÖ 
         Senddata[4]=Adcalcalation[1];//AngleResult[3];//Turnstand[0];
         Senddata[5]=Adcalcalation[2];//Turnstand[1];
-        Senddata[6]=AngleResult[3];
+        Senddata[6]=0;
       } 
       else if(PORTB_PB4==0) 
       {
