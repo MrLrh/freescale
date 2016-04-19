@@ -6,13 +6,13 @@ extern float g_fDirectionError;
 extern float DirectionKp;//0.007;//=9;
 extern float DirectionKi;
 extern float DirectionKd;//0.0004;
-float AD_Max[3][3]={{562,262,55},{269,617,297},{62,318,639}};//标定值
+float AD_Max[3][3];//标定值
 float AD_Cal[3][2];//位移计算
 float distance;//位移值
 float distance_nofilter;//没滤波的位移值
 float AD_Min=10;//最小电感值，小于这个值说明电感不可靠
 float distance_abs[3];//到导线距离的绝对值
-float distance_max=500;
+float distance_max=130;
 uint_16 zhidao_flag; //直道元素标记
 uint_16 Swan_flag;//S弯标记
 uint_16 shizi_flag;//十字
@@ -87,7 +87,7 @@ void AD_biaoding()
 /*************距离计算函数*****************/
 void Delt_Distance() 
 {
-    static int sign=1;//判断位移正负，即导线在左还是右
+   static int sign=1;//判断位移正负，即导线在左还是右
     static float distance_pre;//上一次位移
     static int sign_change;
     float max_num,min_num,temp_max,temp_min;//用于计算插值的中间变量
@@ -100,7 +100,7 @@ void Delt_Distance()
     {
          max_num=AD_Max[1][2];
          min_num=AD_Max[2][2];
-         temp_max=100;
+         temp_max=130;
          temp_min=0;
          temp=Adcalcalation[right_sensor2];
          distance_abs[0]=(temp-min_num)*(temp_max-temp_min)/(max_num-min_num)+temp_min;
@@ -109,19 +109,19 @@ void Delt_Distance()
     {
          max_num=AD_Max[0][2];
          min_num=AD_Max[1][2];
-         temp_max=200;
-         temp_min=100;
+         temp_max=260;
+         temp_min=130;
          temp=Adcalcalation[right_sensor2];
          distance_abs[0]=(temp-min_num)*(temp_max-temp_min)/(max_num-min_num)+temp_min;
     }
-    distance_abs[1]=100*(Adcalcalation[middle_sensor2]-AD_Cal[1][0])/(AD_Cal[1][1]-AD_Cal[1][0]);
+    distance_abs[1]=130*(Adcalcalation[middle_sensor2]-AD_Cal[1][0])/(AD_Cal[1][1]-AD_Cal[1][0]);
     if(Adcalcalation[left_sensor2]>AD_Max[0][0])
          distance_abs[2]=0;
     else if(Adcalcalation[left_sensor2]>AD_Max[1][0]) 
     {
          max_num=AD_Max[1][0];
          min_num=AD_Max[0][0];
-         temp_max=100;
+         temp_max=130;
          temp_min=0;
          temp=Adcalcalation[left_sensor2];
          distance_abs[2]=(temp-min_num)*(temp_max-temp_min)/(max_num-min_num)+temp_min;
@@ -130,8 +130,8 @@ void Delt_Distance()
     {
          max_num=AD_Max[2][0];
          min_num=AD_Max[1][0];
-         temp_max=200;
-         temp_min=100;
+         temp_max=260;
+         temp_min=130;
          temp=Adcalcalation[left_sensor2];
          distance_abs[2]=(temp-min_num)*(temp_max-temp_min)/(max_num-min_num)+temp_min; 
     }
@@ -142,7 +142,7 @@ void Delt_Distance()
     right=0.9*right+0.1*Adcalcalation[right_sensor2]; //低通滤波
     left=0.9*left+0.1*Adcalcalation[left_sensor2];
     
-    if(right>AD_Min*5||left>AD_Min*5||distance>200||distance<-200) 
+    if(right>AD_Min*5||left>AD_Min*5||distance>260||distance<-260) 
     {
          sign_change++;
          if(sign_change>10) 
@@ -170,7 +170,7 @@ void Delt_Distance()
     } 
     else
         sign_change=0;
-    if(distance_abs[1]<42)      //以下代码是融合三个距离的绝对值
+    if(distance_abs[1]<55)      //以下代码是融合三个距离的绝对值
     {
         if(distance_abs[0]>distance_abs[2])
             temp1=(distance_abs[0]-distance_abs[2] ) / 2;
@@ -179,56 +179,56 @@ void Delt_Distance()
         temp3=1;
         temp4=1 - temp3;
     }
-    else if(distance_abs[1] < 58)
+    else if(distance_abs[1] < 76)
     {
         if(distance_abs[0]>distance_abs[2])
             temp1=(distance_abs[0] -distance_abs[2] ) / 2;
         else  temp1 =-(distance_abs[0]-distance_abs[2] ) / 2;
         temp2=distance_abs[1];
-        temp3=(float)(58-distance_abs[1]) / 20;
+        temp3=(float)(76-distance_abs[1]) / 20;
         temp4=1-temp3;
     }
-    else if(distance_abs[1]<92)
+    else if(distance_abs[1]<120)
     {
         temp1=distance_abs[1];
-        temp2=100+distance_abs[2];
+        temp2=130+distance_abs[2];
         temp3=1;
         temp4=1-temp3;
         
     }
-    else if(distance_abs[1]<108)
+    else if(distance_abs[1]<140)
     {
         temp1=distance_abs[1];
         if(sign==-1)
-            temp2=100+distance_abs[2];
-        else temp2=100+distance_abs[0];
-        temp3=(float)(108-distance_abs[1])/20;
+            temp2=130+distance_abs[2];
+        else temp2=130+distance_abs[0];
+        temp3=(float)(140-distance_abs[1])/20;
         temp4=1-temp3;
     }
     else
     {
         temp1=distance_abs[1];
         if(sign==-1)
-            temp2=100+distance_abs[2];
-        else temp2=100+distance_abs[0];
+            temp2=130+distance_abs[2];
+        else temp2=130+distance_abs[0];
         temp3=0;
         temp4=1-temp3;
     }
     temp=temp1*temp3+temp2*temp4;
     distance=temp*sign;
     
-    if(distance<83&&distance>-83)       
+    if(distance<108&&distance>-108)       
     {
-        temp=((float)(Adcalcalation[right_sensor2]-Adcalcalation[left_sensor2])*100)/(Adcalcalation[right_sensor2]+Adcalcalation[left_sensor2]);
-        if(temp<50&&temp>-50)
+        temp=((float)(Adcalcalation[right_sensor2]-Adcalcalation[left_sensor2])*130)/(Adcalcalation[right_sensor2]+Adcalcalation[left_sensor2]);
+        if(temp<65&&temp>-65)
             distance=temp;
-        else if(temp<75&&temp>-75)
+        else if(temp<98&&temp>-98)
         {
             temp1 = distance;
             temp2 = temp;
             if(temp > 0)
-                temp3 = ((float)(temp - 50)) / (75 - 50);
-            else temp3 = ((float)(temp + 50)) / (50 - 75);
+                temp3 = ((float)(temp - 65)) / (75 - 65);
+            else temp3 = ((float)(temp + 65)) / (65 - 98);
             temp4 = 1 - temp3;
             distance= temp1 * temp3 + temp2 * temp4;
 

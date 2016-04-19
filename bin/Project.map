@@ -1,5 +1,5 @@
 *** EVALUATION ***
-PROGRAM "E:\freescale\Git\freescale\bin\Project.abs"
+PROGRAM "G:\smartcar\freescale\bin\Project.abs"
 
 *********************************************************************************************
 TARGET SECTION
@@ -50,10 +50,10 @@ Section Name                    Size  Type     From       To       Segment
 .init                             15     R     0xC000     0xC00E   ROM_C000
 .startData                        10     R     0xC00F     0xC018   ROM_C000
 NON_BANKED                       923     R     0xC019     0xC3B3   ROM_C000
-.copy                             72     R     0xC3B4     0xC3FB   ROM_C000
-.text                           5642     R   0xFE8000   0xFE9609   PAGE_FE
+.copy                             36     R     0xC3B4     0xC3D7   ROM_C000
+.text                           5683     R   0xFE8000   0xFE9632   PAGE_FE
 .stack                           256   R/W     0x2000     0x20FF   RAM
-.data                             66   R/W     0x2100     0x2141   RAM
+.data                             30   R/W     0x2100     0x211D   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
 .abs_section_9                     1   N/I        0x9        0x9   .absSeg1
 .abs_section_b                     1   N/I        0xB        0xB   .absSeg2
@@ -346,12 +346,12 @@ NON_BANKED                       923     R     0xC019     0xC3B3   ROM_C000
 .abs_section_354                   2   N/I      0x354      0x355   .absSeg289
 .abs_section_356                   2   N/I      0x356      0x357   .absSeg290
 .abs_section_ff7a                  2     R     0xFF7A     0xFF7B   .absSeg291
-.bss                              89   R/W     0x2142     0x219A   RAM
-.common                          206   R/W     0x219B     0x2268   RAM
+.bss                              89   R/W     0x211E     0x2176   RAM
+.common                          242   R/W     0x2177     0x2268   RAM
 .vectSeg292_vect                   2     R     0xFFFE     0xFFFF   .vectSeg292
 
 Summary of section sizes per section type:
-READ_ONLY (R):        1A0A (dec:     6666)
+READ_ONLY (R):        1A0F (dec:     6671)
 READ_WRITE (R/W):      269 (dec:      617)
 NO_INIT (N/I):         168 (dec:      360)
 
@@ -625,8 +625,8 @@ MODULE:                 -- MC9S12XS128.c.o --
      _ATD0DR0                                   2D0       2       2       1   .abs_section_2d0
      _ATD0DR1                                   2D2       2       2       1   .abs_section_2d2
      _ATD0DR2                                   2D4       2       2       1   .abs_section_2d4
-     _ATD0DR3                                   2D6       2       2       0   .abs_section_2d6
-     _ATD0DR4                                   2D8       2       2       0   .abs_section_2d8
+     _ATD0DR3                                   2D6       2       2       1   .abs_section_2d6
+     _ATD0DR4                                   2D8       2       2       1   .abs_section_2d8
      _ATD0DR5                                   2DA       2       2       0   .abs_section_2da
      _ATD0DR6                                   2DC       2       2       1   .abs_section_2dc
      _ATD0DR7                                   2DE       2       2       1   .abs_section_2de
@@ -664,12 +664,12 @@ MODULE:                 -- main.c.o --
      main                                    FE8000     10A     266       6   .text       
      pit0                                      C019      73     115       1   NON_BANKED  
 - VARIABLES:
-     g_n1MsEventCount                          2142       1       1       3   .bss        
-     g_nSpeedControlPeriod                     2143       1       1       3   .bss        
-     g_nSpeedControlCount                      2144       1       1       3   .bss        
-     g_nDirectionControlCount                  2145       1       1       3   .bss        
-     g_nDirectionControlPeriod                 2146       1       1       3   .bss        
-     Senddata                                  2147       E      14      21   .bss        
+     g_n1MsEventCount                          211E       1       1       3   .bss        
+     g_nSpeedControlPeriod                     211F       1       1       3   .bss        
+     g_nSpeedControlCount                      2120       1       1       3   .bss        
+     g_nDirectionControlCount                  2121       1       1       3   .bss        
+     g_nDirectionControlPeriod                 2122       1       1       3   .bss        
+     Senddata                                  2123       E      14      21   .bss        
      _Vector_66                                FF7A       2       2       0   .abs_section_ff7a
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
@@ -731,117 +731,117 @@ MODULE:                 -- VREGS.C.o (ansixb.lib) --
 MODULE:                 -- AD.c.o --
 - PROCEDURES:
 - VARIABLES:
-     Adcalcalation                             219B       A      10      32   .common     
+     Adcalcalation                             2177       A      10      32   .common     
 MODULE:                 -- Angle.c.o --
 - PROCEDURES:
-     GetAngle                                FE8133      D0     208       2   .text       
-     AngleCalculate                          FE8203      A7     167       2   .text       
+     GetAngle                                FE8133      F9     249       2   .text       
+     AngleCalculate                          FE822C      A7     167       2   .text       
 - VARIABLES:
-     AngleResult                               21A5       8       8       8   .common     
-     ADResult                                  21AD       8       8       5   .common     
-     AngleCalculateResult                      21B5      10      16      14   .common     
+     AngleResult                               2181       8       8       8   .common     
+     ADResult                                  2189       8       8       5   .common     
+     AngleCalculateResult                      2191      10      16      14   .common     
 MODULE:                 -- Control.c.o --
 - PROCEDURES:
-     AngleControl                            FE82AA      FE     254       2   .text       
-     SpeedSet                                FE83A8      6A     106       2   .text       
-     SpeedControl                            FE8412     111     273       2   .text       
-     SpeedControlOutput                      FE8523      4E      78       2   .text       
-     DirectionControl                        FE8571     107     263       4   .text       
-     DirectionControlOutput                  FE8678      45      69       2   .text       
+     AngleControl                            FE82D3      FE     254       2   .text       
+     SpeedSet                                FE83D1      6A     106       2   .text       
+     SpeedControl                            FE843B     111     273       2   .text       
+     SpeedControlOutput                      FE854C      4E      78       2   .text       
+     DirectionControl                        FE859A     107     263       4   .text       
+     DirectionControlOutput                  FE86A1      45      69       2   .text       
 - VARIABLES:
      Speedset                                  2100       4       4       7   .data       
      DirectionKp                               2104       4       4      10   .data       
      DirectionKd                               2108       4       4       7   .data       
-     AngleKp                                   2155       4       4       6   .bss        
-     AngleKd                                   2159       4       4       2   .bss        
-     g_fGravityAngle                           215D       4       4       6   .bss        
-     g_fGyroscopeAngleSpeed                    2161       4       4       4   .bss        
-     GravityAngleInit                          2165       4       4       4   .bss        
-     GyroscopeAngleSpeedInit                   2169       4       4       2   .bss        
-     g_fAngleControlOut                        216D       4       4       4   .bss        
-     LastAnglespeed                            2171       4       4       5   .bss        
-     SpeedKp                                   2175       4       4       6   .bss        
-     SpeedKd                                   2179       4       4       6   .bss        
-     SpeedKi                                   217D       4       4       5   .bss        
-     DirectionKi                               2181       4       4       2   .bss        
-     g_fCurrentSpeed                           21C5       4       4       4   .common     
-     SpeedDelta                                21C9       4       4       4   .common     
-     DeltaValue                                21CD       8       8      10   .common     
-     g_fSpeedControlIntegral                   21D5       4       4      12   .common     
-     g_fSpeedControlOutOld                     21D9       4       4       6   .common     
-     g_fSpeedControlOutNew                     21DD       4       4       6   .common     
-     g_fSpeedControlOut                        21E1       4       4       4   .common     
-     g_fDirectionControlOutNew                 21E5       4       4       6   .common     
-     g_fDirectionControlOutOld                 21E9       4       4       6   .common     
-     g_fDirectionControlOut                    21ED       4       4       5   .common     
-     g_fDirectionError                         21F1       4       4       8   .common     
-     g_fDirectionErrorOld                      21F5       4       4       4   .common     
-     Delta_DirectionError                      21F9       4       4       2   .common     
-     DirectionAngleSpeedK                      21FD       4       4       2   .common     
-     I_DirectionError                          2201       4       4      10   .common     
+     AngleKp                                   2131       4       4       6   .bss        
+     AngleKd                                   2135       4       4       2   .bss        
+     g_fGravityAngle                           2139       4       4       6   .bss        
+     g_fGyroscopeAngleSpeed                    213D       4       4       4   .bss        
+     GravityAngleInit                          2141       4       4       4   .bss        
+     GyroscopeAngleSpeedInit                   2145       4       4       2   .bss        
+     g_fAngleControlOut                        2149       4       4       4   .bss        
+     LastAnglespeed                            214D       4       4       5   .bss        
+     SpeedKp                                   2151       4       4       6   .bss        
+     SpeedKd                                   2155       4       4       6   .bss        
+     SpeedKi                                   2159       4       4       5   .bss        
+     DirectionKi                               215D       4       4       2   .bss        
+     g_fCurrentSpeed                           21A1       4       4       4   .common     
+     SpeedDelta                                21A5       4       4       4   .common     
+     DeltaValue                                21A9       8       8      10   .common     
+     g_fSpeedControlIntegral                   21B1       4       4      12   .common     
+     g_fSpeedControlOutOld                     21B5       4       4       6   .common     
+     g_fSpeedControlOutNew                     21B9       4       4       6   .common     
+     g_fSpeedControlOut                        21BD       4       4       4   .common     
+     g_fDirectionControlOutNew                 21C1       4       4       6   .common     
+     g_fDirectionControlOutOld                 21C5       4       4       6   .common     
+     g_fDirectionControlOut                    21C9       4       4       5   .common     
+     g_fDirectionError                         21CD       4       4       8   .common     
+     g_fDirectionErrorOld                      21D1       4       4       4   .common     
+     Delta_DirectionError                      21D5       4       4       2   .common     
+     DirectionAngleSpeedK                      21D9       4       4       2   .common     
+     I_DirectionError                          21DD       4       4      10   .common     
 MODULE:                 -- Counter.c.o --
 - PROCEDURES:
-     GetMotorSpeed                           FE86BD      3D      61       2   .text       
-     GetSpeedVeer                            FE86FA      20      32       2   .text       
-     SpeedCalculate                          FE871A      70     112       2   .text       
+     GetMotorSpeed                           FE86E6      3D      61       2   .text       
+     GetSpeedVeer                            FE8723      20      32       2   .text       
+     SpeedCalculate                          FE8743      70     112       2   .text       
 - VARIABLES:
-     Speed                                     2205       2       2       3   .common     
-     Turnstand                                 2207       2       2       3   .common     
-     Lastleftspeed                             2209       2       2       3   .common     
-     Lastrightspeed                            220B       2       2       3   .common     
-     Nowleftspeed                              220D       2       2       4   .common     
-     Nowrightspeed                             220F       2       2       4   .common     
-     Leftspeed                                 2211       2       2       4   .common     
-     Rightspeed                                2213       2       2       5   .common     
+     Speed                                     21E1       2       2       3   .common     
+     Turnstand                                 21E3       2       2       3   .common     
+     Lastleftspeed                             21E5       2       2       3   .common     
+     Lastrightspeed                            21E7       2       2       3   .common     
+     Nowleftspeed                              21E9       2       2       4   .common     
+     Nowrightspeed                             21EB       2       2       4   .common     
+     Leftspeed                                 21ED       2       2       4   .common     
+     Rightspeed                                21EF       2       2       5   .common     
 MODULE:                 -- Init.c.o --
 - PROCEDURES:
-     PLL_INIT                                FE878A      1D      29       2   .text       
-     PIT_INIT                                FE87A7      1C      28       2   .text       
-     PWM_INIT                                FE87C3      7E     126       2   .text       
-     AD_INIT                                 FE8841      13      19       2   .text       
-     IO_INIT                                 FE8854      43      67       2   .text       
-     SCI_INIT                                FE8897       D      13       2   .text       
-     DFLASH_INIT                             FE88A4      17      23       2   .text       
+     PLL_INIT                                FE87B3      1D      29       2   .text       
+     PIT_INIT                                FE87D0      1C      28       2   .text       
+     PWM_INIT                                FE87EC      7E     126       2   .text       
+     AD_INIT                                 FE886A      13      19       2   .text       
+     IO_INIT                                 FE887D      43      67       2   .text       
+     SCI_INIT                                FE88C0       D      13       2   .text       
+     DFLASH_INIT                             FE88CD      17      23       2   .text       
 - VARIABLES:
 MODULE:                 -- Motorout.c.o --
 - PROCEDURES:
-     MotorOutput                             FE88BB      66     102       2   .text       
-     MotorSpeedControl                       FE8921      BA     186       2   .text       
-     SetMotorPWM                             FE89DB      49      73       2   .text       
+     MotorOutput                             FE88E4      66     102       2   .text       
+     MotorSpeedControl                       FE894A      BA     186       2   .text       
+     SetMotorPWM                             FE8A04      49      73       2   .text       
 - VARIABLES:
      MOTOR_OUT_MAX                             210C       4       4       7   .data       
      MOTOR_OUT_MIN                             2110       4       4       8   .data       
-     LeftFrontDead_Val                         2185       2       2       1   .bss        
-     LeftBackDead_Val                          2187       2       2       1   .bss        
-     RightFrontDead_Val                        2189       2       2       1   .bss        
-     RightBackDead_Val                         218B       2       2       1   .bss        
-     g_fLeftMotorOut                           2215       4       4       4   .common     
-     g_fRightMotorOut                          2219       4       4       4   .common     
-     nOutL                                     221D       2       2       4   .common     
-     nOutR                                     221F       2       2       3   .common     
+     LeftFrontDead_Val                         2161       2       2       1   .bss        
+     LeftBackDead_Val                          2163       2       2       1   .bss        
+     RightFrontDead_Val                        2165       2       2       1   .bss        
+     RightBackDead_Val                         2167       2       2       1   .bss        
+     g_fLeftMotorOut                           21F1       4       4       4   .common     
+     g_fRightMotorOut                          21F5       4       4       4   .common     
+     nOutL                                     21F9       2       2       4   .common     
+     nOutR                                     21FB       2       2       3   .common     
 MODULE:                 -- Sci.c.o --
 - PROCEDURES:
-     SCI_send                                FE8A24       9       9       8   .text       
-     Datatransition                          FE8A2D      58      88       2   .text       
-     SendHex                                 FE8A85      2A      42       2   .text       
-     SCI_senddata                            FE8AAF      23      35       2   .text       
+     SCI_send                                FE8A4D       9       9       8   .text       
+     Datatransition                          FE8A56      58      88       2   .text       
+     SendHex                                 FE8AAE      2A      42       2   .text       
+     SCI_senddata                            FE8AD8      23      35       2   .text       
 - VARIABLES:
-     Outdata                                   2221       E      14      16   .common     
+     Outdata                                   21FD       E      14      16   .common     
 MODULE:                 -- Position.c.o --
 - PROCEDURES:
-     AD_biaoding                             FE8AD2     1D0     464      16   .text       
-     Delt_Distance                           FE8CA2     750    1872      68   .text       
-     Setparamater                            FE93F2      CE     206       4   .text       
-     Position                                FE94C0      89     137       2   .text       
+     AD_biaoding                             FE8AFB     1D0     464      16   .text       
+     Delt_Distance                           FE8CCB     750    1872      68   .text       
+     Setparamater                            FE941B      CE     206       4   .text       
+     Position                                FE94E9      89     137       2   .text       
 - VARIABLES:
-     AD_Max                                    2114      24      36      82   .data       
-     AD_Min                                    2138       4       4       7   .data       
-     distance_max                              213C       4       4       6   .data       
-     sign.1                                    2140       2       2       5   .data       
-     right.4                                   218D       4       4      12   .bss        
-     left.5                                    2191       4       4      12   .bss        
-     distance_pre.2                            2195       4       4       4   .bss        
-     sign_change.3                             2199       2       2       4   .bss        
+     AD_Min                                    2114       4       4       7   .data       
+     distance_max                              2118       4       4       6   .data       
+     sign.1                                    211C       2       2       5   .data       
+     right.4                                   2169       4       4      12   .bss        
+     left.5                                    216D       4       4      12   .bss        
+     distance_pre.2                            2171       4       4       4   .bss        
+     sign_change.3                             2175       2       2       4   .bss        
+     AD_Max                                    220B      24      36      82   .common     
      AD_Cal                                    222F      18      24      13   .common     
      distance                                  2247       4       4      29   .common     
      distance_nofilter                         224B       4       4       2   .common     
@@ -852,9 +852,9 @@ MODULE:                 -- Position.c.o --
      dis                                       2261       2       2       1   .common     
 MODULE:                 -- Flash.c.o --
 - PROCEDURES:
-     Dflash_Write                            FE9549      62      98       6   .text       
-     Dflash_Read                             FE95AB      23      35       2   .text       
-     Dflash_Erase                            FE95CE      3C      60       2   .text       
+     Dflash_Write                            FE9572      62      98       6   .text       
+     Dflash_Read                             FE95D4      23      35       2   .text       
+     Dflash_Erase                            FE95F7      3C      60       2   .text       
 - VARIABLES:
      Buffer                                    2263       6       6       6   .common     
 
@@ -873,7 +873,7 @@ MODULE STATISTIC
   rtshc12.c.o (ansixb.lib)                     0     23      0
   VREGS.C.o (ansixb.lib)                       0     28      0
   AD.c.o                                      10      0      0
-  Angle.c.o                                   32    375      0
+  Angle.c.o                                   32    416      0
   Control.c.o                                124   1043      0
   Counter.c.o                                 16    205      0
   Init.c.o                                     0    305      0
@@ -881,7 +881,7 @@ MODULE STATISTIC
   Sci.c.o                                     14    174      0
   Position.c.o                               112   2679      0
   Flash.c.o                                    6    193      0
-  other                                      256     12     72
+  other                                      256     12     36
 
 *********************************************************************************************
 SECTION USE IN OBJECT-ALLOCATION SECTION
@@ -894,7 +894,7 @@ SECTION: ".text"
   Datatransition SendHex SCI_senddata AD_biaoding Delt_Distance Setparamater 
   Position Dflash_Write Dflash_Read Dflash_Erase 
 SECTION: ".data"
-  Speedset DirectionKp DirectionKd MOTOR_OUT_MAX MOTOR_OUT_MIN AD_Max AD_Min 
+  Speedset DirectionKp DirectionKd MOTOR_OUT_MAX MOTOR_OUT_MIN AD_Min 
   distance_max sign.1 
 SECTION: ".bss"
   g_n1MsEventCount g_nSpeedControlPeriod g_nSpeedControlCount 
@@ -1501,7 +1501,7 @@ SECTION: ".common"
   g_fDirectionErrorOld Delta_DirectionError DirectionAngleSpeedK 
   I_DirectionError Speed Turnstand Lastleftspeed Lastrightspeed Nowleftspeed 
   Nowrightspeed Leftspeed Rightspeed g_fLeftMotorOut g_fRightMotorOut nOutL 
-  nOutR Outdata AD_Cal distance distance_nofilter distance_abs left_flag 
+  nOutR Outdata AD_Max AD_Cal distance distance_nofilter distance_abs left_flag 
   right_flag stop_flag dis Buffer 
 
 *********************************************************************************************
@@ -1743,8 +1743,8 @@ OBJECT LIST SORTED BY ADDRESS
      _ATD0DR0                                   2D0       2       2       1   .abs_section_2d0
      _ATD0DR1                                   2D2       2       2       1   .abs_section_2d2
      _ATD0DR2                                   2D4       2       2       1   .abs_section_2d4
-     _ATD0DR3                                   2D6       2       2       0   .abs_section_2d6
-     _ATD0DR4                                   2D8       2       2       0   .abs_section_2d8
+     _ATD0DR3                                   2D6       2       2       1   .abs_section_2d6
+     _ATD0DR4                                   2D8       2       2       1   .abs_section_2d8
      _ATD0DR5                                   2DA       2       2       0   .abs_section_2da
      _ATD0DR6                                   2DC       2       2       1   .abs_section_2dc
      _ATD0DR7                                   2DE       2       2       1   .abs_section_2de
@@ -1804,68 +1804,68 @@ OBJECT LIST SORTED BY ADDRESS
      DirectionKd                               2108       4       4       7   .data       
      MOTOR_OUT_MAX                             210C       4       4       7   .data       
      MOTOR_OUT_MIN                             2110       4       4       8   .data       
-     AD_Max                                    2114      24      36      82   .data       
-     AD_Min                                    2138       4       4       7   .data       
-     distance_max                              213C       4       4       6   .data       
-     sign.1                                    2140       2       2       5   .data       
-     g_n1MsEventCount                          2142       1       1       3   .bss        
-     g_nSpeedControlPeriod                     2143       1       1       3   .bss        
-     g_nSpeedControlCount                      2144       1       1       3   .bss        
-     g_nDirectionControlCount                  2145       1       1       3   .bss        
-     g_nDirectionControlPeriod                 2146       1       1       3   .bss        
-     Senddata                                  2147       E      14      21   .bss        
-     AngleKp                                   2155       4       4       6   .bss        
-     AngleKd                                   2159       4       4       2   .bss        
-     g_fGravityAngle                           215D       4       4       6   .bss        
-     g_fGyroscopeAngleSpeed                    2161       4       4       4   .bss        
-     GravityAngleInit                          2165       4       4       4   .bss        
-     GyroscopeAngleSpeedInit                   2169       4       4       2   .bss        
-     g_fAngleControlOut                        216D       4       4       4   .bss        
-     LastAnglespeed                            2171       4       4       5   .bss        
-     SpeedKp                                   2175       4       4       6   .bss        
-     SpeedKd                                   2179       4       4       6   .bss        
-     SpeedKi                                   217D       4       4       5   .bss        
-     DirectionKi                               2181       4       4       2   .bss        
-     LeftFrontDead_Val                         2185       2       2       1   .bss        
-     LeftBackDead_Val                          2187       2       2       1   .bss        
-     RightFrontDead_Val                        2189       2       2       1   .bss        
-     RightBackDead_Val                         218B       2       2       1   .bss        
-     right.4                                   218D       4       4      12   .bss        
-     left.5                                    2191       4       4      12   .bss        
-     distance_pre.2                            2195       4       4       4   .bss        
-     sign_change.3                             2199       2       2       4   .bss        
-     Adcalcalation                             219B       A      10      32   .common     
-     AngleResult                               21A5       8       8       8   .common     
-     ADResult                                  21AD       8       8       5   .common     
-     AngleCalculateResult                      21B5      10      16      14   .common     
-     g_fCurrentSpeed                           21C5       4       4       4   .common     
-     SpeedDelta                                21C9       4       4       4   .common     
-     DeltaValue                                21CD       8       8      10   .common     
-     g_fSpeedControlIntegral                   21D5       4       4      12   .common     
-     g_fSpeedControlOutOld                     21D9       4       4       6   .common     
-     g_fSpeedControlOutNew                     21DD       4       4       6   .common     
-     g_fSpeedControlOut                        21E1       4       4       4   .common     
-     g_fDirectionControlOutNew                 21E5       4       4       6   .common     
-     g_fDirectionControlOutOld                 21E9       4       4       6   .common     
-     g_fDirectionControlOut                    21ED       4       4       5   .common     
-     g_fDirectionError                         21F1       4       4       8   .common     
-     g_fDirectionErrorOld                      21F5       4       4       4   .common     
-     Delta_DirectionError                      21F9       4       4       2   .common     
-     DirectionAngleSpeedK                      21FD       4       4       2   .common     
-     I_DirectionError                          2201       4       4      10   .common     
-     Speed                                     2205       2       2       3   .common     
-     Turnstand                                 2207       2       2       3   .common     
-     Lastleftspeed                             2209       2       2       3   .common     
-     Lastrightspeed                            220B       2       2       3   .common     
-     Nowleftspeed                              220D       2       2       4   .common     
-     Nowrightspeed                             220F       2       2       4   .common     
-     Leftspeed                                 2211       2       2       4   .common     
-     Rightspeed                                2213       2       2       5   .common     
-     g_fLeftMotorOut                           2215       4       4       4   .common     
-     g_fRightMotorOut                          2219       4       4       4   .common     
-     nOutL                                     221D       2       2       4   .common     
-     nOutR                                     221F       2       2       3   .common     
-     Outdata                                   2221       E      14      16   .common     
+     AD_Min                                    2114       4       4       7   .data       
+     distance_max                              2118       4       4       6   .data       
+     sign.1                                    211C       2       2       5   .data       
+     g_n1MsEventCount                          211E       1       1       3   .bss        
+     g_nSpeedControlPeriod                     211F       1       1       3   .bss        
+     g_nSpeedControlCount                      2120       1       1       3   .bss        
+     g_nDirectionControlCount                  2121       1       1       3   .bss        
+     g_nDirectionControlPeriod                 2122       1       1       3   .bss        
+     Senddata                                  2123       E      14      21   .bss        
+     AngleKp                                   2131       4       4       6   .bss        
+     AngleKd                                   2135       4       4       2   .bss        
+     g_fGravityAngle                           2139       4       4       6   .bss        
+     g_fGyroscopeAngleSpeed                    213D       4       4       4   .bss        
+     GravityAngleInit                          2141       4       4       4   .bss        
+     GyroscopeAngleSpeedInit                   2145       4       4       2   .bss        
+     g_fAngleControlOut                        2149       4       4       4   .bss        
+     LastAnglespeed                            214D       4       4       5   .bss        
+     SpeedKp                                   2151       4       4       6   .bss        
+     SpeedKd                                   2155       4       4       6   .bss        
+     SpeedKi                                   2159       4       4       5   .bss        
+     DirectionKi                               215D       4       4       2   .bss        
+     LeftFrontDead_Val                         2161       2       2       1   .bss        
+     LeftBackDead_Val                          2163       2       2       1   .bss        
+     RightFrontDead_Val                        2165       2       2       1   .bss        
+     RightBackDead_Val                         2167       2       2       1   .bss        
+     right.4                                   2169       4       4      12   .bss        
+     left.5                                    216D       4       4      12   .bss        
+     distance_pre.2                            2171       4       4       4   .bss        
+     sign_change.3                             2175       2       2       4   .bss        
+     Adcalcalation                             2177       A      10      32   .common     
+     AngleResult                               2181       8       8       8   .common     
+     ADResult                                  2189       8       8       5   .common     
+     AngleCalculateResult                      2191      10      16      14   .common     
+     g_fCurrentSpeed                           21A1       4       4       4   .common     
+     SpeedDelta                                21A5       4       4       4   .common     
+     DeltaValue                                21A9       8       8      10   .common     
+     g_fSpeedControlIntegral                   21B1       4       4      12   .common     
+     g_fSpeedControlOutOld                     21B5       4       4       6   .common     
+     g_fSpeedControlOutNew                     21B9       4       4       6   .common     
+     g_fSpeedControlOut                        21BD       4       4       4   .common     
+     g_fDirectionControlOutNew                 21C1       4       4       6   .common     
+     g_fDirectionControlOutOld                 21C5       4       4       6   .common     
+     g_fDirectionControlOut                    21C9       4       4       5   .common     
+     g_fDirectionError                         21CD       4       4       8   .common     
+     g_fDirectionErrorOld                      21D1       4       4       4   .common     
+     Delta_DirectionError                      21D5       4       4       2   .common     
+     DirectionAngleSpeedK                      21D9       4       4       2   .common     
+     I_DirectionError                          21DD       4       4      10   .common     
+     Speed                                     21E1       2       2       3   .common     
+     Turnstand                                 21E3       2       2       3   .common     
+     Lastleftspeed                             21E5       2       2       3   .common     
+     Lastrightspeed                            21E7       2       2       3   .common     
+     Nowleftspeed                              21E9       2       2       4   .common     
+     Nowrightspeed                             21EB       2       2       4   .common     
+     Leftspeed                                 21ED       2       2       4   .common     
+     Rightspeed                                21EF       2       2       5   .common     
+     g_fLeftMotorOut                           21F1       4       4       4   .common     
+     g_fRightMotorOut                          21F5       4       4       4   .common     
+     nOutL                                     21F9       2       2       4   .common     
+     nOutR                                     21FB       2       2       3   .common     
+     Outdata                                   21FD       E      14      16   .common     
+     AD_Max                                    220B      24      36      82   .common     
      AD_Cal                                    222F      18      24      13   .common     
      distance                                  2247       4       4      29   .common     
      distance_nofilter                         224B       4       4       2   .common     
@@ -1908,38 +1908,38 @@ OBJECT LIST SORTED BY ADDRESS
      _Vector_66                                FF7A       2       2       0   .abs_section_ff7a
      main                                    FE8000     10A     266       6   .text       
      Init                                    FE810A      29      41       2   .text       
-     GetAngle                                FE8133      D0     208       2   .text       
-     AngleCalculate                          FE8203      A7     167       2   .text       
-     AngleControl                            FE82AA      FE     254       2   .text       
-     SpeedSet                                FE83A8      6A     106       2   .text       
-     SpeedControl                            FE8412     111     273       2   .text       
-     SpeedControlOutput                      FE8523      4E      78       2   .text       
-     DirectionControl                        FE8571     107     263       4   .text       
-     DirectionControlOutput                  FE8678      45      69       2   .text       
-     GetMotorSpeed                           FE86BD      3D      61       2   .text       
-     GetSpeedVeer                            FE86FA      20      32       2   .text       
-     SpeedCalculate                          FE871A      70     112       2   .text       
-     PLL_INIT                                FE878A      1D      29       2   .text       
-     PIT_INIT                                FE87A7      1C      28       2   .text       
-     PWM_INIT                                FE87C3      7E     126       2   .text       
-     AD_INIT                                 FE8841      13      19       2   .text       
-     IO_INIT                                 FE8854      43      67       2   .text       
-     SCI_INIT                                FE8897       D      13       2   .text       
-     DFLASH_INIT                             FE88A4      17      23       2   .text       
-     MotorOutput                             FE88BB      66     102       2   .text       
-     MotorSpeedControl                       FE8921      BA     186       2   .text       
-     SetMotorPWM                             FE89DB      49      73       2   .text       
-     SCI_send                                FE8A24       9       9       8   .text       
-     Datatransition                          FE8A2D      58      88       2   .text       
-     SendHex                                 FE8A85      2A      42       2   .text       
-     SCI_senddata                            FE8AAF      23      35       2   .text       
-     AD_biaoding                             FE8AD2     1D0     464      16   .text       
-     Delt_Distance                           FE8CA2     750    1872      68   .text       
-     Setparamater                            FE93F2      CE     206       4   .text       
-     Position                                FE94C0      89     137       2   .text       
-     Dflash_Write                            FE9549      62      98       6   .text       
-     Dflash_Read                             FE95AB      23      35       2   .text       
-     Dflash_Erase                            FE95CE      3C      60       2   .text       
+     GetAngle                                FE8133      F9     249       2   .text       
+     AngleCalculate                          FE822C      A7     167       2   .text       
+     AngleControl                            FE82D3      FE     254       2   .text       
+     SpeedSet                                FE83D1      6A     106       2   .text       
+     SpeedControl                            FE843B     111     273       2   .text       
+     SpeedControlOutput                      FE854C      4E      78       2   .text       
+     DirectionControl                        FE859A     107     263       4   .text       
+     DirectionControlOutput                  FE86A1      45      69       2   .text       
+     GetMotorSpeed                           FE86E6      3D      61       2   .text       
+     GetSpeedVeer                            FE8723      20      32       2   .text       
+     SpeedCalculate                          FE8743      70     112       2   .text       
+     PLL_INIT                                FE87B3      1D      29       2   .text       
+     PIT_INIT                                FE87D0      1C      28       2   .text       
+     PWM_INIT                                FE87EC      7E     126       2   .text       
+     AD_INIT                                 FE886A      13      19       2   .text       
+     IO_INIT                                 FE887D      43      67       2   .text       
+     SCI_INIT                                FE88C0       D      13       2   .text       
+     DFLASH_INIT                             FE88CD      17      23       2   .text       
+     MotorOutput                             FE88E4      66     102       2   .text       
+     MotorSpeedControl                       FE894A      BA     186       2   .text       
+     SetMotorPWM                             FE8A04      49      73       2   .text       
+     SCI_send                                FE8A4D       9       9       8   .text       
+     Datatransition                          FE8A56      58      88       2   .text       
+     SendHex                                 FE8AAE      2A      42       2   .text       
+     SCI_senddata                            FE8AD8      23      35       2   .text       
+     AD_biaoding                             FE8AFB     1D0     464      16   .text       
+     Delt_Distance                           FE8CCB     750    1872      68   .text       
+     Setparamater                            FE941B      CE     206       4   .text       
+     Position                                FE94E9      89     137       2   .text       
+     Dflash_Write                            FE9572      62      98       6   .text       
+     Dflash_Read                             FE95D4      23      35       2   .text       
+     Dflash_Erase                            FE95F7      3C      60       2   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -1976,7 +1976,7 @@ COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
 ------- ROM-ADDRESS: 0xC3B4 ---- SIZE       4 ---
 Filling bytes inserted
- 00422100
+ 001E2100
 ------- ROM-ADDRESS: 0xC3B8 ---- RAM-ADDRESS: 0x2100 ---- SIZE       2 ---
 Name of initialized Object : Speedset
  43C8
@@ -2001,30 +2001,22 @@ Name of initialized Object : MOTOR_OUT_MIN
 ------- ROM-ADDRESS: 0xC3CA ---- SIZE       2 ---
 Filling bytes inserted
  0000
-------- ROM-ADDRESS: 0xC3CC ---- RAM-ADDRESS: 0x2114 ---- SIZE      35 ---
-Name of initialized Object : AD_Max
- 440C800043 830000425C 0000438680
- 00441A4000 4394800042 780000439F
- 0000441FC0
-------- ROM-ADDRESS: 0xC3EF ---- SIZE       1 ---
-Filling bytes inserted
- 00
-------- ROM-ADDRESS: 0xC3F0 ---- RAM-ADDRESS: 0x2138 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC3CC ---- RAM-ADDRESS: 0x2114 ---- SIZE       2 ---
 Name of initialized Object : AD_Min
  4120
-------- ROM-ADDRESS: 0xC3F2 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC3CE ---- SIZE       2 ---
 Filling bytes inserted
  0000
-------- ROM-ADDRESS: 0xC3F4 ---- RAM-ADDRESS: 0x213C ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC3D0 ---- RAM-ADDRESS: 0x2118 ---- SIZE       2 ---
 Name of initialized Object : distance_max
- 43FA
-------- ROM-ADDRESS: 0xC3F6 ---- SIZE       3 ---
+ 4302
+------- ROM-ADDRESS: 0xC3D2 ---- SIZE       3 ---
 Filling bytes inserted
  000000
-------- ROM-ADDRESS: 0xC3F9 ---- RAM-ADDRESS: 0x2141 ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC3D5 ---- RAM-ADDRESS: 0x211D ---- SIZE       1 ---
 Name of initialized Object : sign.1:1
  01
-------- ROM-ADDRESS: 0xC3FA ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC3D6 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -2060,7 +2052,8 @@ main                      USES PLL_INIT PIT_INIT PWM_INIT AD_INIT IO_INIT
                                 AD_Cal _FADD _FDIV Dflash_Read _FUFLOAT 
 Init                      USES _startupData 
 GetAngle                  USES _ATD0STAT0 _ATD0DR8 _ATD0DR9 _ATD0DR6 _ATD0DR7 
-                                _ATD0DR0 _ATD0DR1 _ATD0DR2 ADResult Adcalcalation 
+                                _ATD0DR0 _ATD0DR1 _ATD0DR2 _ATD0DR3 _ATD0DR4 ADResult 
+                                Adcalcalation 
 AngleCalculate            USES AngleResult _FUFLOAT _FADD _FDIV 
                                 AngleCalculateResult 
 AngleControl              USES AngleCalculate AngleCalculateResult 
@@ -2386,5 +2379,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 7
-Total size of all blocks to be downloaded: 6666
+Total size of all blocks to be downloaded: 6671
 

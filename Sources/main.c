@@ -81,8 +81,8 @@ void main(void)
         Senddata[1]=AngleResult[1];
         Senddata[2]=AngleResult[3];//ÓÒÂÖ
         Senddata[3]=Adcalcalation[0];//×óÂÖ 
-        Senddata[4]=Adcalcalation[1];//AngleResult[3];//Turnstand[0];
-        Senddata[5]=Adcalcalation[2];//Turnstand[1];
+        Senddata[4]=Adcalcalation[2];//AngleResult[3];//Turnstand[0];
+        Senddata[5]=Adcalcalation[4];//Turnstand[1];
         Senddata[6]=0;
       } 
       else if(PORTB_PB4==0) 

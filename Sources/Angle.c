@@ -13,7 +13,7 @@ float AngleCalculateResult[4];
 void GetAngle(uint_16 *Angle) 
 {
     int i;
-    uint_16 value[7]={0};//缓存
+    uint_16 value[9]={0};//缓存
     for(i=0;i<20;i++) 
     {
       while(!ATD0STAT0_SCF);      
@@ -24,6 +24,8 @@ void GetAngle(uint_16 *Angle)
       value[4]+=ATD0DR0;//左电感
       value[5]+=ATD0DR1;//中间
       value[6]+=ATD0DR2;//右电感
+      value[7]+=ATD0DR3; //右电感1
+      value[8]+=ATD0DR4;//右电感2
     }
     value[0]=value[0]/20;
     value[1]=value[1]/20;
@@ -32,6 +34,8 @@ void GetAngle(uint_16 *Angle)
     value[4]=value[4]/20;
     value[5]=value[5]/20;
     value[6]=value[6]/20;
+    value[7]=value[7]/20;
+    value[8]=value[8]/20;
     ADResult[0]=5000/1024*value[0];//进行归一化，AD采样精度为10位
     ADResult[1]=5000/1024*value[1];
     ADResult[2]=5000/1024*value[2];
